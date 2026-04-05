@@ -1,7 +1,7 @@
 # vantageOS
 
 ![Architecture](https://img.shields.io/badge/arch-ARM64-blue)
-![License](https://img.shields.io/badge/license-Apache%202.0-green)
+![License](https://img.shields.io/badge/license-MIT-green)
 ![Status](https://img.shields.io/badge/status-work%20in%20progress-orange)
 
 vantageOS is a personal operating system built from scratch, targeting ARM64 for long battery life and solid performance. It takes inspiration from the privacy and open-source philosophy of Linux, the smooth animations of macOS, and the user-friendly interface of both. Built with [OSDev Wiki](https://wiki.osdev.org) as the primary reference.
@@ -47,4 +47,4 @@ For major changes, please open an issue first to discuss what you'd like to chan
 
 ## License
 
-Apache 2.0 License — see [LICENSE](./LICENSE) for details.
+MIT License — see [LICENSE](./LICENSE) for details.
