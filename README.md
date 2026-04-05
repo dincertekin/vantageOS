@@ -1,54 +1,50 @@
 # vantageOS
-A personal operating system built from scratch.
 
-## Description
-vantageOS is a personal operating system project built from scratch, combining the privacy and open-source philosophy of Linux, the smoothness and animations of macOS, and the user-friendly interface of both Mac and Windows. Targeting ARM64 architecture for long-lasting battery life and solid performance, this project is a work in progress that grows a little better every day.
+![Architecture](https://img.shields.io/badge/arch-ARM64-blue)
+![License](https://img.shields.io/badge/license-Apache%202.0-green)
+![Status](https://img.shields.io/badge/status-work%20in%20progress-orange)
 
-## Getting Started
+vantageOS is a personal operating system built from scratch, targeting ARM64 for long battery life and solid performance. It takes inspiration from the privacy and open-source philosophy of Linux, the smooth animations of macOS, and the user-friendly interface of both. Built with [OSDev Wiki](https://wiki.osdev.org) as the primary reference.
 
-### Dependencies
-* NASM (assembler)
-* GCC (C compiler)
-* LD (GNU Linker)
+## Tech Stack
 
-### Installing
-* Clone the repository:
-```bash
-git clone https://github.com/dincertekin/vantageOS.git
-cd vantageOS/
-```
+| Layer | Tool |
+|---|---|
+| Assembler | NASM |
+| Compiler | GCC |
+| Linker | GNU LD |
+| Architecture | ARM64 |
 
-### Executing program
-* Assemble the bootsector:
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/dincertekin/vantageOS.git
+   cd vantageOS/
+   ```
+
+## Build
+
+Assemble the bootsector, compile the kernel, then link:
+
 ```bash
 nasm -f bin bootsector.asm -o bootsector.bin
-```
-
-* Build the kernel:
-```bash
 gcc -ffreestanding -c kernel.c -o kernel.o
-```
-
-* Link the files:
-```bash
 ld -T linker.ld -o hobbyOS.bin kernel.o
 ```
 
-## Help
-Refer to the [OSDev Wiki](https://wiki.osdev.org) for guidance on OS development concepts and troubleshooting.
-
 ## Contributing
-Contributions are welcome! To get started:
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -m 'Add your feature'`)
-4. Push to the branch (`git push origin feature/your-feature`)
-5. Open a Pull Request
 
-Please open an issue first for major changes to discuss what you'd like to change.
+Contributions are welcome! To get started:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Commit your changes (`git commit -m 'Add your feature'`).
+4. Push to the branch (`git push origin feature/your-feature`).
+5. Open a Pull Request.
+
+For major changes, please open an issue first to discuss what you'd like to change.
 
 ## License
-This project is licensed under the [Apache-2.0](LICENSE) License - see the LICENSE.md file for details
 
-## Acknowledgments
-* [OSDev Wiki](https://wiki.osdev.org) — the backbone of this project
+Apache 2.0 License — see [LICENSE](./LICENSE) for details.
