@@ -47,4 +47,4 @@ For major changes, please open an issue first to discuss what you'd like to chan
 
 ## License
 
-MIT License — see [LICENSE](./LICENSE) for details.
+MIT License, see [LICENSE](./LICENSE) for details.
