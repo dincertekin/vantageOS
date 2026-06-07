@@ -1,4 +1,4 @@
-# vantageOS
+# VantageOS
 
 ![Architecture](https://img.shields.io/badge/arch-ARM64-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
