@@ -1,15 +1,27 @@
-# Assemble bootloader
-as -o bootloader.o src/bootloader.asm
-ld -o bootloader.bin -T linker.ld bootloader.o
+TARGET  := aarch64-unknown-none
+BIN     := vantageos
+QEMU    := qemu-system-aarch64
 
-# Compile kernel
-gcc -c -o kernel.o src/kernel.c -ffreestanding -O2 -Wall -Wextra
+.PHONY: build release run run-release run-headless clean
 
-# Link kernel
-ld -T linker.ld -o kernel.bin kernel.o
+build:
+	cargo build
 
-# Create disk image
-cat bootloader.bin kernel.bin > os_image.bin
+release:
+	cargo build --release
 
-# Final step: run the OS image using QEMU
-# qemu-system-aarch64 -drive format=raw,file=os_image.bin
+# ramfb = virtual display; virtio-tablet-device = absolute pointer (not
+# virtio-mouse-device, which grabs the host mouse on click). Ctrl-A C for
+# the QEMU monitor, Ctrl-A X to exit.
+run: build
+	$(QEMU) -M virt -cpu cortex-a72 -m 256 -device ramfb -device virtio-tablet-device -serial mon:stdio -kernel target/$(TARGET)/debug/$(BIN)
+
+run-release: release
+	$(QEMU) -M virt -cpu cortex-a72 -m 256 -device ramfb -device virtio-tablet-device -serial mon:stdio -kernel target/$(TARGET)/release/$(BIN)
+
+# Serial-only, no display window.
+run-headless: build
+	$(QEMU) -M virt -cpu cortex-a72 -nographic -kernel target/$(TARGET)/debug/$(BIN)
+
+clean:
+	cargo clean

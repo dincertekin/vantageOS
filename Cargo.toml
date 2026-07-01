@@ -1,0 +1,22 @@
+[package]
+name = "vantageos"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "vantageos"
+test = false
+bench = false
+
+[profile.dev]
+panic = "abort"
+# core::fmt's newer UB-precondition checks assume a hosted environment;
+# on bare metal a failed check just recurses through our own panic
+# handler's print call and stack-smashes. Release already disables these.
+debug-assertions = false
+overflow-checks = false
+
+[profile.release]
+panic = "abort"
+lto = true
+codegen-units = 1
