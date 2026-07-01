@@ -8,6 +8,8 @@ A personal operating system built from scratch in Rust, targeting ARM64. It take
 
 Boots straight into a graphical desktop shell under QEMU: no filesystem, no processes, no allocator. A single-core, single-address-space kernel with a compositor, a mouse-driven UI, and a real shutdown path.
 
+![vantageOS desktop with the Terminal window open](./docs/screenshot.png)
+
 ## Status
 
 Working today:
